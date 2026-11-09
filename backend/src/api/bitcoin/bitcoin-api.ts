@@ -458,6 +458,7 @@ class BitcoinApi implements AbstractBitcoinApi {
         .then((block: IBitcoinApi.Block) => {
           return this.$convertTransaction(Object.assign(block.tx[0], {
             confirmations: blocks.getCurrentBlockHeight() + 1,
+            blockhash: hash,
             blocktime: block.time }), false);
         })
     );
